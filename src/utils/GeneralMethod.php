@@ -193,11 +193,10 @@ class GeneralMethod {
         // if(preg_match("/^(\d{4})-(\d{2})-(\d{2}) ([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $dateTime, $matches)){
         if (preg_match("/^(\d{4})-([0-9]|0[1-9]|1[0-2])-([0-9]|0[1-9]|[1-2][0-9]|3[0-1]) ([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/", $dateTime, $matches)) {
 
-            // print_r($matches); echo "<br>";
             $yy = trim($matches[1]);
             $mm = trim($matches[2]);
             $dd = trim($matches[3]);
-            return checkdate($mm, $dd, $yy); // <- Problem here?
+            return checkdate($mm, $dd, $yy);
         } else {
 //        echo "wrong format<br>";
             return false;
@@ -231,14 +230,6 @@ class GeneralMethod {
         
         return $uniqFileName;        
     }
-    
-    function generateUniqueQRKey() {
-        
-        $uniqKey = md5(uniqid().time());
-        
-        return $uniqKey;
-    }
-
     
 }
 
